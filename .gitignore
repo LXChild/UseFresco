@@ -1,0 +1,17 @@
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+drawable/
+layout/
+mipmap-hdpi/
+mipmap-mdpi/
+mipmap-xhdpi/
+mipmap-xxhdpi/
+mipmap-xxxhdpi/
+values-w820dp/
+values/
