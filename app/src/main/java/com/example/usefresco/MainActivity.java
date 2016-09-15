@@ -21,11 +21,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-// 在自己想要开始调试的地方start
+        // 在自己想要开始调试的地方start
         Debug.startMethodTracing("UseFresco");
-
-
         ProgressiveJpegConfig config = new ProgressiveJpegConfig() {
             @Override
             public int getNextScanNumberToDecode(int i) {

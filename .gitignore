@@ -15,3 +15,5 @@ mipmap-xxhdpi/
 mipmap-xxxhdpi/
 values-w820dp/
 values/
+app/libs/
+lib/libs/
