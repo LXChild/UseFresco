@@ -2,7 +2,6 @@ package com.example.usefresco;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Debug;
 import android.support.v7.app.AppCompatActivity;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
@@ -22,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // 在自己想要开始调试的地方start
-        Debug.startMethodTracing("UseFresco");
+        //Debug.startMethodTracing("UseFresco");
         ProgressiveJpegConfig config = new ProgressiveJpegConfig() {
             @Override
             public int getNextScanNumberToDecode(int i) {
@@ -89,6 +88,6 @@ public class MainActivity extends AppCompatActivity {
 //        imageView.setHierarchy(hierarchy);
 
         // 在合适的地方stop
-        Debug.stopMethodTracing();
+     //   Debug.stopMethodTracing();
     }
 }
