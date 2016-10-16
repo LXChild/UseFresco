@@ -84,7 +84,7 @@ public final class Sort {
     }
 
     /**
-     * 快速排序,时间复杂度:O(n * log n)
+     * 快速排序,时间复杂度:O(n * log n), 不稳定
      */
     public static void quickSort(int[] arr) {
         partition(arr, 0, arr.length - 1);
@@ -117,40 +117,35 @@ public final class Sort {
         partition(arr, start, i - 1);
         partition(arr, i + 1, end);
     }
-
     /**
-     * 快速排序
-     */
-//    private void quick() {
-//        Log.d(TAG, "quick>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-//
-//        if (array.length > 0) {
-//            quickSort(array, 0, array.length - 1);
-//        }
-//    }
-//
-//    private static void quickSort(int[] a, int low, int high) {
-//        if (low < high) { //如果不加这个判断递归会无法退出导致堆栈溢出异常
-//            int middle = getMiddle(a, low, high);
-//            quickSort(a, 0, middle - 1);
-//            quickSort(a, middle + 1, high);
-//        }
-//    }
-//
-//    private static int getMiddle(int[] a, int low, int high) {
-//        int temp = a[low];//基准元素
-//        while (low < high) {
-//            //找到比基准元素小的元素位置
-//            while (low < high && a[high] >= temp) {
-//                high--;
-//            }
-//            a[low] = a[high];
-//            while (low < high && a[low] <= temp) {
-//                low++;
-//            }
-//            a[high] = a[low];
-//        }
-//        a[low] = temp;
-//        return low;
-//    }
+     * 堆排序， 时间复杂度O(logn)
+     * */
+    public static void heapSort(int[] arr) {
+        int lastIndex = arr.length - 1;
+        buildHeap(arr, lastIndex);
+        for (int i = 0; i < arr.length; i ++) {
+            swap(arr, 0, lastIndex);
+            adjustHeap(arr, 0, -- lastIndex);
+        }
+    }
+    private static void buildHeap(int[] arr, int lastIndex) {
+        for (int i = (lastIndex >> 1); i >= 0; i --) {
+            adjustHeap(arr, i, lastIndex);
+        }
+    }
+    private static void adjustHeap(int[] arr, int i, int lastIndex) {
+        int mx = i;
+        int lc = 2 * i + 1;
+        int rc = 2 * i + 2;
+        if (lc <= lastIndex && arr[lc] > arr[mx]) {
+            mx = lc;
+        }
+        if (rc <= lastIndex && arr[rc] > arr[mx]) {
+            mx = rc;
+        }
+        if (mx != i) {
+            swap(arr, mx, i);
+            adjustHeap(arr, mx, lastIndex);
+        }
+    }
 }
